@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body{
+    background-color: #0e1d3c;
+    margin: 0px;
+    padding: 0px;
+}
+
+.app-header{
+    display: flex;
+    justify-content: center;
+    color: black;
+    font-size: 30px;
+    background-color: #ffd700;
+    font-family: 'Roboto', sans-serif;
+}
+
+.perma_details-box{
+    margin-top: 20px;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-size: 30px;
+}
+
+.wifi-labels{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.wifi-labels input{
+    height: 30px;
+    font-size: 25px;
+    border-radius: 10px;
+}
+
+.phone-labels{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.phone-labels input{
+    height: 30px;
+    font-size: 25px;
+    border-radius: 10px;
+}
+
+.big-button-box{
+    display: flex;
+    justify-content: right;
+    margin-top: 20px;
+    margin-right: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.add-button-box{
+    background-color: #ffd700;
+    border-radius: 50px;
+    font-size: 50px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.add-button-box:hover{
+    scale: 1.1;
+}
+
+.gen_code-big-box{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.gen_code-button-box{
+    background-color: #ffd700;
+    border-radius: 20px;
+    font-size: 40px;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    font-weight: 900;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.gen_code-button-box:hover{
+    scale: 1.1;
+}
+
+.palm_details-box{
+    margin-top: 20px;
+    font-family: 'Roboto', sans-serif;
+    color: #0e1d3c;
+    font-size: 18px;
+    background-color: #ffd700;
+    border-radius: 8px;
+    padding: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-weight: 900;
+}
+
+.finger_details-box{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.finger_details-box-small{
+    display: flex;
+    justify-content: space-between;
+}
+
+.finger_details-box-small input{
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.palm_angle_details-box{
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.palm_angle_details-box input{
+    font-size: 18px;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.message-box{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.message-box input{
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.code-box-big{
+    margin-top: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+
+.code-box{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 50px;
+    margin-right: 50px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.copy{
+    background-color: black;
+    height: 30px;
+    color: white;
+    border-radius: 20px;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    font-weight: 900;
+    padding: 10px;
+    cursor: pointer;
+}
