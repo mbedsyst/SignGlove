@@ -6,12 +6,20 @@ body{
 }
 
 .app-header{
-    display: flex;
-    justify-content: center;
     color: black;
     font-size: 30px;
     background-color: #ffd700;
     font-family: 'Roboto', sans-serif;
+}
+
+.app-header h1{
+    display: flex;
+    justify-content: center;
+}
+
+.app-header h2{
+    display: flex;
+    justify-content: center;
 }
 
 .perma_details-box{
@@ -172,4 +180,36 @@ body{
     font-weight: 900;
     padding: 10px;
     cursor: pointer;
+}
+
+.Instructions-box{
+    margin-top: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #ffd700;
+    border-radius: 8px;
+    padding: 20px;
+    font-weight: 900;
+}
+
+.delete-button-box{
+    display: flex;
+    justify-content: right;
+}
+
+.delete-button-box div{
+    background-color: red;
+    border-radius: 10px;
+    font-size: 25px;
+    width: 175px;
+    display: flex;
+    justify-content: center;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.delete-button-box div:hover{
+    scale: 1.1;
 }

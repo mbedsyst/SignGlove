@@ -38,17 +38,24 @@ function App() {
     }
     setInputFields([...inputFields, newfield]);
   }
+
+  const deleteBlock = (index) => {
+    let data = [...inputFields];
+    data.splice(index,1);
+    setInputFields(data);
+  }
+
   const Generate = (e) => {
     e.preventDefault();
     let conditionals="";
     for(let i=0; i<inputFields.length; i++){
-      let thumbcond=inputFields[i].thumb===""? "": `&& thumbdiff>${inputFields[i].thumb}`;
-      let indexcond=inputFields[i].indexf===""? "": `&& indexdiff>${inputFields[i].indexf}`;
-      let middlecond=inputFields[i].middle===""? "": `&& middlediff>${inputFields[i].middle}`;
-      let ringcond=inputFields[i].ring===""? "": `&& ringdiff>${inputFields[i].ring}`;
-      let pinkycond=inputFields[i].pinky===""? "": `&& pinkydiff>${inputFields[i].pinky}`;
-      let ycond=inputFields[i].y_angle===""? "": `&& angle.y>${inputFields[i].y_angle}`;
-      let zcond=inputFields[i].z_angle===""? "": `&& angle.z>${inputFields[i].z_angle}`;
+      let thumbcond=inputFields[i].thumb===""? "": `&& thumbdiff${inputFields[i].thumb}`;
+      let indexcond=inputFields[i].indexf===""? "": `&& indexdiff${inputFields[i].indexf}`;
+      let middlecond=inputFields[i].middle===""? "": `&& middlediff${inputFields[i].middle}`;
+      let ringcond=inputFields[i].ring===""? "": `&& ringdiff${inputFields[i].ring}`;
+      let pinkycond=inputFields[i].pinky===""? "": `&& pinkydiff${inputFields[i].pinky}`;
+      let ycond=inputFields[i].y_angle===""? "": `&& angle.y${inputFields[i].y_angle}`;
+      let zcond=inputFields[i].z_angle===""? "": `&& angle.z${inputFields[i].z_angle}`;
       conditionals=conditionals+`if(sent==false ${thumbcond} ${indexcond} ${middlecond} ${ringcond} ${pinkycond} ${ycond} ${zcond}){
         Serial.println("${inputFields[i].message}");
         sendMessage("${inputFields[i].message}");
@@ -227,7 +234,21 @@ function App() {
   return (
     <div className="App">
       <div className="app-header">
-        <h1 className="heading">GloveCode</h1>
+        <h1 className="heading">SignGlove</h1>
+        <h2>DASHBOARD</h2>
+      </div>
+      <div className='Instructions-box'>
+        <h2>Instructions for use</h2>
+        <ul>
+          <li>Begin by downloading and installing Arduino IDE. You can obtain the software by visiting this <a href='https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE' target="_blank">link</a>.</li>
+          <li>Once Arduino IDE is installed, navigate to Tools → Manage Libraries. From there, install the following libraries: OneWire, MPU9250_WE, AdafruitBusIO, Adafruit_GFX, Adafruit_SSD1306, Arduino Uno WiFi Dev Ed, ArduinoHTTPClient, and UrlEncode.</li>
+          <li>Go to this <a href='https://www.callmebot.com/blog/free-api-whatsapp-messages/' target="_blank">link</a> and follow the given instructions to setup the notification system on your phone</li>
+          <li>On the GloveCode website, enter the wifi and phone number details first then locate and click the "+" button to add a field where you can input the required data.</li>
+          <li>When inputting numerical values, please use the symbols "{">"}", "{"<"}", and "==" to denote "greater than", "less than", and "equal to" the specified field value, respectively.</li>
+          <li>Click the "Generate Code" button and then select the "Copy" option.</li>
+          <li>Open Arduino IDE, clear any existing code, and press Ctrl+V to paste the copied code.</li>
+          <li>Connect the ESP-32 device, and finally, click on the "Upload" button in Arduino IDE to initiate the upload process.</li>
+        </ul>
       </div>
       <div className="perma_details-box">
         <div className="wifi_details-box">
@@ -252,6 +273,7 @@ function App() {
         </div>
       </div>
       {inputFields.map((input, index)=>(<div key={index} className="palm_details-box">
+        <div>
         <div className="finger_details-box">
           <form className='finger_details-box-small'>
           <label>Thumb:
@@ -273,10 +295,10 @@ function App() {
         </div>
         <div className="palm_angle_details-box">
           <form className='palm_angle_details-box-small'>
-            <label>y-angle:
+            <label>Y-angle:
               <input name='y_angle' value={input.y_angle} onChange={event => handleFormChange(index, event)}/>
             </label>
-            <label>z-angle:
+            <label>Z-angle:
               <input name='z_angle' value={input.z_angle} onChange={event => handleFormChange(index, event)}/>
             </label>
           </form>
@@ -288,6 +310,8 @@ function App() {
             </label>
           </form>
         </div>
+        </div>
+        <div className="delete-button-box"><div onClick={()=>deleteBlock(index)}>Delete Block</div></div>
       </div>))}
       <div className="big-button-box">
       <div className="add-button-box" onClick={addBlock}>
