@@ -59,6 +59,7 @@ function App() {
       conditionals=conditionals+`if(sent==false ${thumbcond} ${indexcond} ${middlecond} ${ringcond} ${pinkycond} ${ycond} ${zcond}){
         Serial.println("${inputFields[i].message}");
         sendMessage("${inputFields[i].message}");
+        sent=true;
         delay(2000);
       } \n`
     }
@@ -162,7 +163,7 @@ function App() {
     }
 
     int thumb[2], indes[2], middle[2], ring[2], pinky[2];
-    bool scanned=false, sent;
+    bool scanned=false, sent=true;
 
     void loop() {  
       
@@ -180,34 +181,44 @@ function App() {
       middle[0]=analogRead(middlepin);  
       ring[0]=analogRead(ringpin);
       pinky[0]=analogRead(pinkypin);
-      scanned=true;
-      sent=false;}
+      scanned=true;}
       //hand up state
       if (angles.x>50){
       thumb[1]=analogRead(thumbpin);
       indes[1]=analogRead(indexpin);
       middle[1]=analogRead(middlepin);  
       ring[1]=analogRead(ringpin);
-      pinky[1]=analogRead(pinkypin);}  
+      pinky[1]=analogRead(pinkypin);
+      sent=false;}  
       //thumb
+      Serial.print("thumb: ");
       int thumbdiff=thumb[0]-thumb[1];
-      display.print("thumb: ");
+      Serial.println(thumbdiff);
+      display.print("THUMB: ");
       display.println(thumbdiff);
       //index
+      Serial.print("index: ");
       int indexdiff=indes[0]-indes[1];
-      display.print("index: ");
+      Serial.println(indexdiff);
+      display.print("INDEX: ");
       display.println(indexdiff);
       //middle
+      Serial.print("middle: ");
       int middlediff=middle[0]-middle[1];
-      display.print("middle: ");
+      Serial.println(middlediff);
+      display.print("MIDDLE:");
       display.println(middlediff);
       //ring
+      Serial.print("ring: ");
       int ringdiff=ring[0]-ring[1];
-      display.print("ring: ");
+      Serial.println(ringdiff);
+      display.print("RING:  ");
       display.println(ringdiff);
       //pinky
+      Serial.print("pinky: ");
       int pinkydiff=pinky[0]-pinky[1];
-      display.print("pinky: ");
+      Serial.println(pinkydiff);
+      display.print("PINKY: ");
       display.println(pinkydiff);
       //angles  
       display.println("angles (x,y,z): ");
