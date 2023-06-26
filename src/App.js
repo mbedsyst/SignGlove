@@ -236,7 +236,7 @@ function App() {
         ring[1]=0;
         pinky[1]=0;  
         scanned=false;  
-      }\n`+ conditionals
+      }\n`+ conditionals +'}\n'
       )
   }
   const copyToClip=()=>{
